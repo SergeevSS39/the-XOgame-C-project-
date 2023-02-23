@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <stdlib.h>
 #include <conio.h>
 #include <time.h>
@@ -12,7 +12,7 @@ enum Color {
 };
 
 enum Direction { Up = 72, Left = 75, Right = 77, Down = 80, Enter = 13, esc = 27, Space = 32 };
-HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);//получаем дискриптор активного окна
+HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);//РїРѕР»СѓС‡Р°РµРј РґРёСЃРєСЂРёРїС‚РѕСЂ Р°РєС‚РёРІРЅРѕРіРѕ РѕРєРЅР°
 void SetCursor(int x, int y)
 {
     COORD myCoords = { x,y };
@@ -64,11 +64,11 @@ int ActivePoint(char mas[][20], int row)
     } while (key != esc);
     return -1;
 }
-void ShowHeader()//отображает верхний баннер
+void ShowHeader()//РѕС‚РѕР±СЂР°Р¶Р°РµС‚ РІРµСЂС…РЅРёР№ Р±Р°РЅРЅРµСЂ
 {
     int time = 0;
     const int stringrow = 15, stringcol = 60;
-    //массив для вывод титульника
+    //РјР°СЃСЃРёРІ РґР»СЏ РІС‹РІРѕРґ С‚РёС‚СѓР»СЊРЅРёРєР°
     char str0[stringrow][stringcol] = { "                                ##    ##   #######",
                                         "                                 ##  ##    ##   ##",
                                         "########   ##   ##    #######     ####     ##   ##",
@@ -134,15 +134,15 @@ int main()
     setlocale(LC_ALL, "rus");
     srand(time(NULL));
 
-    int allExit = 0, exit = 0;//выход из игры
-    //МЕНЮ
+    int allExit = 0, exit = 0;//РІС‹С…РѕРґ РёР· РёРіСЂС‹
+    //РњР•РќР®
     do
     {
-        char menu[2][20] = { "Новая игра","Выход" };
+        char menu[2][20] = { "РќРѕРІР°СЏ РёРіСЂР°","Р’С‹С…РѕРґ" };
         const int length = 10;
         int mas[length];
-        int point = 0, pointLvl = 0, pointChoise = 0, gameModePoint = 0, PvP = 0, key;//меню
-        char user, user2, comp;//участники
+        int point = 0, pointLvl = 0, pointChoise = 0, gameModePoint = 0, PvP = 0, key;//РјРµРЅСЋ
+        char user, user2, comp;//СѓС‡Р°СЃС‚РЅРёРєРё
         do
         {
             ShowHeader();
@@ -151,13 +151,13 @@ int main()
             {
                 system("cls");
                 ShowHeader();
-                char gameMode[2][20] = { "Против компьютера","Против игрока" };
+                char gameMode[2][20] = { "РџСЂРѕС‚РёРІ РєРѕРјРїСЊСЋС‚РµСЂР°","РџСЂРѕС‚РёРІ РёРіСЂРѕРєР°" };
                 gameModePoint = ActivePoint(gameMode, 2);
                 if (gameModePoint == 0)
                 {
                     system("cls");
                     ShowHeader();
-                    char pointMenu[4][20] = { "Легко", "Средне","Сложно", "Назад" };
+                    char pointMenu[4][20] = { "Р›РµРіРєРѕ", "РЎСЂРµРґРЅРµ","РЎР»РѕР¶РЅРѕ", "РќР°Р·Р°Рґ" };
                     pointLvl = ActivePoint(pointMenu, 4);
 
                     if (pointLvl == 0)
@@ -165,8 +165,8 @@ int main()
                         system("cls");
                         ShowHeader();
                         SetCursor(26, 9);
-                        cout << "Кого ты выберешь?";
-                        char pointMenu2[2][20] = { "Крестики", "Нолики", };
+                        cout << "РљРѕРіРѕ С‚С‹ РІС‹Р±РµСЂРµС€СЊ?";
+                        char pointMenu2[2][20] = { "РљСЂРµСЃС‚РёРєРё", "РќРѕР»РёРєРё", };
                         pointChoise = ActivePoint(pointMenu2, 2);
                         if (pointChoise == 0)
                         {
@@ -186,8 +186,8 @@ int main()
                         system("cls");
                         ShowHeader();
                         SetCursor(26, 9);
-                        cout << "Кого ты выберешь?";
-                        char pointMenu2[2][20] = { "Крестики", "Нолики", };
+                        cout << "РљРѕРіРѕ С‚С‹ РІС‹Р±РµСЂРµС€СЊ?";
+                        char pointMenu2[2][20] = { "РљСЂРµСЃС‚РёРєРё", "РќРѕР»РёРєРё", };
                         pointChoise = ActivePoint(pointMenu2, 2);
                         if (pointChoise == 0)
                         {
@@ -207,8 +207,8 @@ int main()
                         system("cls");
                         ShowHeader();
                         SetCursor(26, 9);
-                        cout << "Кого ты выберешь?";
-                        char pointMenu2[2][20] = { "Крестики", "Нолики", };
+                        cout << "РљРѕРіРѕ С‚С‹ РІС‹Р±РµСЂРµС€СЊ?";
+                        char pointMenu2[2][20] = { "РљСЂРµСЃС‚РёРєРё", "РќРѕР»РёРєРё", };
                         pointChoise = ActivePoint(pointMenu2, 2);
                         if (pointChoise == 0)
                         {
@@ -232,8 +232,8 @@ int main()
                     system("cls");
                     ShowHeader();
                     SetCursor(26, 9);
-                    cout << "Кого ты выберешь?";
-                    char pointMenu2[2][20] = { "Крестики", "Нолики", };
+                    cout << "РљРѕРіРѕ С‚С‹ РІС‹Р±РµСЂРµС€СЊ?";
+                    char pointMenu2[2][20] = { "РљСЂРµСЃС‚РёРєРё", "РќРѕР»РёРєРё", };
                     pointChoise = ActivePoint(pointMenu2, 2);
                     if (pointChoise == 0)
                     {
@@ -260,43 +260,43 @@ int main()
         } while (point != -1);
         system("cls");
 
-        //рандом на право первого хода
-        int firstMove = rand() % 2;//если 0 - ходит игрок 1, если 1 - ходит игрок2 
+        //СЂР°РЅРґРѕРј РЅР° РїСЂР°РІРѕ РїРµСЂРІРѕРіРѕ С…РѕРґР°
+        int firstMove = rand() % 2;//РµСЃР»Рё 0 - С…РѕРґРёС‚ РёРіСЂРѕРє 1, РµСЃР»Рё 1 - С…РѕРґРёС‚ РёРіСЂРѕРє2 
         Sleep(200);
         if (PvP == 1)
         {
             if (firstMove == 0)
             {
                 SetCursor(26, 9);
-                cout << "Первым ходит игрок1";
+                cout << "РџРµСЂРІС‹Рј С…РѕРґРёС‚ РёРіСЂРѕРє1";
             }
             else if (firstMove == 1)
             {
                 SetCursor(26, 9);
-                cout << "Первым ходит игрок2";
+                cout << "РџРµСЂРІС‹Рј С…РѕРґРёС‚ РёРіСЂРѕРє2";
             }
         }
         SetCursor(0, 0);
-        // здесь будет игровой движок
+        // Р·РґРµСЃСЊ Р±СѓРґРµС‚ РёРіСЂРѕРІРѕР№ РґРІРёР¶РѕРє
         if (PvP == 0)
         {
 
-            if (pointLvl == 0)//легкий уровень
+            if (pointLvl == 0)//Р»РµРіРєРёР№ СѓСЂРѕРІРµРЅСЊ
             {
                 do
                 {
-                    char field[3][3] = { {'.','.','.'},{'.','.','.'},{'.','.','.'} }; //игровое поле
+                    char field[3][3] = { {'.','.','.'},{'.','.','.'},{'.','.','.'} }; //РёРіСЂРѕРІРѕРµ РїРѕР»Рµ
                     bool userWin = false, compWin = false, notWin = false;
-                    int x = 0, y = 0; //выбор позиции
-                    int movCount = 0;//количество ходов
+                    int x = 0, y = 0; //РІС‹Р±РѕСЂ РїРѕР·РёС†РёРё
+                    int movCount = 0;//РєРѕР»РёС‡РµСЃС‚РІРѕ С…РѕРґРѕРІ
                     if (firstMove == 1)
                     {
                         do
                         {
-                            x = rand() % 3;//рандом для компьютера
+                            x = rand() % 3;//СЂР°РЅРґРѕРј РґР»СЏ РєРѕРјРїСЊСЋС‚РµСЂР°
                             y = rand() % 3;
                         } while (field[x][y] != '.');
-                        field[x][y] = comp; //ход компьютера
+                        field[x][y] = comp; //С…РѕРґ РєРѕРјРїСЊСЋС‚РµСЂР°
                         movCount++;
                     }
                     do
@@ -332,7 +332,7 @@ int main()
                             case Down:
                                 if (y < 2) y += 1;
                                 break;
-                            case esc: //написать выход в меню паузы
+                            case esc: //РЅР°РїРёСЃР°С‚СЊ РІС‹С…РѕРґ РІ РјРµРЅСЋ РїР°СѓР·С‹
                                 key = esc;
                                 break;
 
@@ -340,7 +340,7 @@ int main()
                                 if (field[x][y] == user || field[x][y] == comp)
                                     key = -1;
                                 else
-                                    field[x][y] = user;//выбор игрока
+                                    field[x][y] = user;//РІС‹Р±РѕСЂ РёРіСЂРѕРєР°
                                 break;
                             default:
                                 break;
@@ -348,7 +348,7 @@ int main()
                         } while (key != Space);
                         movCount++;
 
-                        //ход компьютера
+                        //С…РѕРґ РєРѕРјРїСЊСЋС‚РµСЂР°
                         if (movCount != 9)
                         {
                             do
@@ -360,29 +360,29 @@ int main()
                             movCount++;
                         }
 
-                        //условие победы
-                        if (field[0][0] == user && field[0][1] == user && field[0][2] == user ||//строка
+                        //СѓСЃР»РѕРІРёРµ РїРѕР±РµРґС‹
+                        if (field[0][0] == user && field[0][1] == user && field[0][2] == user ||//СЃС‚СЂРѕРєР°
                             field[1][0] == user && field[1][1] == user && field[1][2] == user ||
                             field[2][0] == user && field[2][1] == user && field[2][2] == user ||
 
-                            field[0][0] == user && field[1][0] == user && field[2][0] == user ||//столбец
+                            field[0][0] == user && field[1][0] == user && field[2][0] == user ||//СЃС‚РѕР»Р±РµС†
                             field[0][1] == user && field[1][1] == user && field[2][1] == user ||
                             field[0][2] == user && field[1][2] == user && field[2][2] == user ||
 
-                            field[0][0] == user && field[1][1] == user && field[2][2] == user ||//диагональ
+                            field[0][0] == user && field[1][1] == user && field[2][2] == user ||//РґРёР°РіРѕРЅР°Р»СЊ
                             field[0][2] == user && field[1][1] == user && field[2][0] == user)
                         {
                             userWin = true;
                         }
-                        else if (field[0][0] == comp && field[0][1] == comp && field[0][2] == comp ||//строка
+                        else if (field[0][0] == comp && field[0][1] == comp && field[0][2] == comp ||//СЃС‚СЂРѕРєР°
                             field[1][0] == comp && field[1][1] == comp && field[1][2] == comp ||
                             field[2][0] == comp && field[2][1] == comp && field[2][2] == comp ||
 
-                            field[0][0] == comp && field[1][0] == comp && field[2][0] == comp ||//столбец
+                            field[0][0] == comp && field[1][0] == comp && field[2][0] == comp ||//СЃС‚РѕР»Р±РµС†
                             field[0][1] == comp && field[1][1] == comp && field[2][1] == comp ||
                             field[0][2] == comp && field[1][2] == comp && field[2][2] == comp ||
 
-                            field[0][0] == comp && field[1][1] == comp && field[2][2] == comp ||//диагональ
+                            field[0][0] == comp && field[1][1] == comp && field[2][2] == comp ||//РґРёР°РіРѕРЅР°Р»СЊ
                             field[0][2] == comp && field[1][1] == comp && field[2][0] == comp)
 
                         {
@@ -394,13 +394,13 @@ int main()
                         }
                         system("cls");
                     } while (userWin == false && compWin == false && notWin == false);
-                    //проверка на победителя
+                    //РїСЂРѕРІРµСЂРєР° РЅР° РїРѕР±РµРґРёС‚РµР»СЏ
                     ShowHeader();
                     SetCursor(26, 9);
-                    if (userWin == true) cout << "Игрок победил" << endl;
-                    else if (user2 == true)cout << "Компьютер победил" << endl;
-                    else if (notWin == true)cout << "Победителей нет" << endl;
-                    char exitMenu[3][20] = { "Еще раз","В меню", "Выход" };
+                    if (userWin == true) cout << "РРіСЂРѕРє РїРѕР±РµРґРёР»" << endl;
+                    else if (user2 == true)cout << "РљРѕРјРїСЊСЋС‚РµСЂ РїРѕР±РµРґРёР»" << endl;
+                    else if (notWin == true)cout << "РџРѕР±РµРґРёС‚РµР»РµР№ РЅРµС‚" << endl;
+                    char exitMenu[3][20] = { "Р•С‰Рµ СЂР°Р·","Р’ РјРµРЅСЋ", "Р’С‹С…РѕРґ" };
                     int exitPoint = ActivePoint(exitMenu, 3);
                     if (exitPoint == 0)
                     {
@@ -421,22 +421,22 @@ int main()
                 } while (exit != 1);
             }
 
-            else if (pointLvl == 2)//сложный уровень
+            else if (pointLvl == 2)//СЃР»РѕР¶РЅС‹Р№ СѓСЂРѕРІРµРЅСЊ
             {
                 do
                 {
-                    char field[3][3] = { {'.','.','.'},{'.','.','.'},{'.','.','.'} }; //игровое поле
+                    char field[3][3] = { {'.','.','.'},{'.','.','.'},{'.','.','.'} }; //РёРіСЂРѕРІРѕРµ РїРѕР»Рµ
                     bool userWin = false, compWin = false, notWin = false;
-                    int x = 0, y = 0; //выбор позиции
-                    int movCount = 0;//количество ходов
+                    int x = 0, y = 0; //РІС‹Р±РѕСЂ РїРѕР·РёС†РёРё
+                    int movCount = 0;//РєРѕР»РёС‡РµСЃС‚РІРѕ С…РѕРґРѕРІ
                     if (firstMove == 1)
                     {
                         do
                         {
-                            x = rand() % 3;//рандом для компьютера
+                            x = rand() % 3;//СЂР°РЅРґРѕРј РґР»СЏ РєРѕРјРїСЊСЋС‚РµСЂР°
                             y = rand() % 3;
                         } while (field[x][y] != '.');
-                        field[x][y] = comp; //ход компьютера
+                        field[x][y] = comp; //С…РѕРґ РєРѕРјРїСЊСЋС‚РµСЂР°
                         movCount++;
                     }
                     do
@@ -474,36 +474,36 @@ int main()
                                 if (field[x][y] == user || field[x][y] == comp)
                                     key = -1;
                                 else
-                                    field[x][y] = user;//выбор игрока
+                                    field[x][y] = user;//РІС‹Р±РѕСЂ РёРіСЂРѕРєР°
                                 break;
                             default:
                                 break;
                             }
                         } while (key != Space);
                         movCount++;
-                        //ход компьютера
+                        //С…РѕРґ РєРѕРјРїСЊСЋС‚РµСЂР°
                         if (movCount != 9)
                         {
-                            //противодействие игроку
+                            //РїСЂРѕС‚РёРІРѕРґРµР№СЃС‚РІРёРµ РёРіСЂРѕРєСѓ
                             if (field[0][0] == user && field[1][0] == user && field[1][1] == user && field[2][0] == comp && field[0][1] == comp && field[1][2] == comp && field[2][2] == '.')field[2][2] = comp;
                             else if (field[0][0] == user && field[0][1] == user && field[1][1] == user && field[1][0] == comp && field[2][1] == comp && field[2][2] == comp && field[0][2] == '.')field[0][2] = comp;
                             else if (field[1][0] == user && field[2][1] == user && field[2][2] == user && field[0][0] == comp && field[0][1] == comp && field[1][1] == comp && field[0][2] == '.')field[0][2] = comp;
-                            else if (field[0][0] == user && field[1][0] == user && field[2][0] == '.') field[2][0] = comp;//строка
+                            else if (field[0][0] == user && field[1][0] == user && field[2][0] == '.') field[2][0] = comp;//СЃС‚СЂРѕРєР°
                             else if (field[0][1] == user && field[1][1] == user && field[2][1] == '.') field[2][1] = comp;
                             else if (field[0][2] == user && field[1][2] == user && field[2][2] == '.') field[2][2] = comp;
                             else if (field[0][0] == user && field[2][0] == user && field[0][1] == '.') field[0][1] = comp;
                             else if (field[0][1] == user && field[2][1] == user && field[1][1] == '.') field[1][1] = comp;
                             else if (field[0][2] == user && field[2][2] == user && field[2][1] == '.') field[2][1] = comp;
-                            else if (field[0][0] == user && field[0][1] == user && field[0][2] == '.') field[0][2] = comp;//столбец
+                            else if (field[0][0] == user && field[0][1] == user && field[0][2] == '.') field[0][2] = comp;//СЃС‚РѕР»Р±РµС†
                             else if (field[1][0] == user && field[1][1] == user && field[1][2] == '.') field[1][2] = comp;
                             else if (field[2][0] == user && field[2][1] == user && field[2][2] == '.') field[2][2] = comp;
                             else if (field[0][0] == user && field[0][2] == user && field[0][1] == '.') field[0][1] = comp;
                             else if (field[0][1] == user && field[2][1] == user && field[1][1] == '.') field[1][1] = comp;
                             else if (field[0][2] == user && field[2][2] == user && field[1][2] == '.') field[1][2] = comp;
-                            else if (field[0][0] == user && field[1][1] == user && field[2][2] == '.') field[2][2] = comp;//диагональ
+                            else if (field[0][0] == user && field[1][1] == user && field[2][2] == '.') field[2][2] = comp;//РґРёР°РіРѕРЅР°Р»СЊ
                             else if (field[0][2] == user && field[1][1] == user && field[2][0] == '.') field[2][0] = comp;
                             else if (field[2][0] == user && field[1][1] == user && field[0][2] == '.') field[0][2] = comp;
-                            //строка                
+                            //СЃС‚СЂРѕРєР°                
                             else if (field[0][0] == comp && field[1][0] == comp && field[2][0] == '.') field[2][0] = comp;
                             else if (field[0][1] == comp && field[1][1] == comp && field[2][1] == '.')field[2][1] = comp;
                             else if (field[0][2] == comp && field[1][2] == comp && field[2][2] == '.') field[2][2] = comp;
@@ -513,7 +513,7 @@ int main()
                             else if (field[1][0] == comp && field[2][0] == '.') field[2][0] = comp;
                             else if (field[0][1] == comp && field[1][1] == '.') field[1][1] = comp;
                             else if (field[0][2] == comp && field[1][2] == '.') field[1][2] = comp;
-                            //столбец                
+                            //СЃС‚РѕР»Р±РµС†                
                             else if (field[0][0] == comp && field[0][1] == comp && field[0][2] == '.') field[0][2] = comp;
                             else if (field[1][0] == comp && field[1][1] == comp && field[1][2] == '.')field[1][2] = comp;
                             else if (field[2][0] == comp && field[2][1] == comp && field[2][2] == '.')field[2][2] = comp;
@@ -523,7 +523,7 @@ int main()
                             else if (field[0][0] == comp && field[0][1] == '.') field[0][1] = comp;
                             else if (field[1][0] == comp && field[1][1] == '.') field[1][1] = comp;
                             else if (field[2][0] == comp && field[2][1] == '.') field[2][1] = comp;
-                            //диагональ              
+                            //РґРёР°РіРѕРЅР°Р»СЊ              
                             else if (field[0][0] == comp && field[1][1] == comp && field[2][2] == '.')field[2][2] == comp;
                             else if (field[0][2] == comp && field[1][1] == comp && field[2][0] == '.')field[2][0] == comp;
                             else if (field[0][0] == user && field[1][1] == '.') field[1][1] = comp;
@@ -542,29 +542,29 @@ int main()
                             movCount++;
                         }
 
-                        //условие победы
-                        if (field[0][0] == user && field[0][1] == user && field[0][2] == user ||//строка
+                        //СѓСЃР»РѕРІРёРµ РїРѕР±РµРґС‹
+                        if (field[0][0] == user && field[0][1] == user && field[0][2] == user ||//СЃС‚СЂРѕРєР°
                             field[1][0] == user && field[1][1] == user && field[1][2] == user ||
                             field[2][0] == user && field[2][1] == user && field[2][2] == user ||
 
-                            field[0][0] == user && field[1][0] == user && field[2][0] == user ||//столбец
+                            field[0][0] == user && field[1][0] == user && field[2][0] == user ||//СЃС‚РѕР»Р±РµС†
                             field[0][1] == user && field[1][1] == user && field[2][1] == user ||
                             field[0][2] == user && field[1][2] == user && field[2][2] == user ||
 
-                            field[0][0] == user && field[1][1] == user && field[2][2] == user ||//диагональ
+                            field[0][0] == user && field[1][1] == user && field[2][2] == user ||//РґРёР°РіРѕРЅР°Р»СЊ
                             field[0][2] == user && field[1][1] == user && field[2][0] == user)
                         {
                             userWin = true;
                         }
-                        else if (field[0][0] == comp && field[0][1] == comp && field[0][2] == comp ||//строка
+                        else if (field[0][0] == comp && field[0][1] == comp && field[0][2] == comp ||//СЃС‚СЂРѕРєР°
                             field[1][0] == comp && field[1][1] == comp && field[1][2] == comp ||
                             field[2][0] == comp && field[2][1] == comp && field[2][2] == comp ||
 
-                            field[0][0] == comp && field[1][0] == comp && field[2][0] == comp ||//столбец
+                            field[0][0] == comp && field[1][0] == comp && field[2][0] == comp ||//СЃС‚РѕР»Р±РµС†
                             field[0][1] == comp && field[1][1] == comp && field[2][1] == comp ||
                             field[0][2] == comp && field[1][2] == comp && field[2][2] == comp ||
 
-                            field[0][0] == comp && field[1][1] == comp && field[2][2] == comp ||//диагональ
+                            field[0][0] == comp && field[1][1] == comp && field[2][2] == comp ||//РґРёР°РіРѕРЅР°Р»СЊ
                             field[0][2] == comp && field[1][1] == comp && field[2][0] == comp)
 
                         {
@@ -576,13 +576,13 @@ int main()
                         }
                         system("cls");
                     } while (userWin == false && compWin == false && notWin == false);
-                    //проверка на победителя
+                    //РїСЂРѕРІРµСЂРєР° РЅР° РїРѕР±РµРґРёС‚РµР»СЏ
                     ShowHeader();
                     SetCursor(26, 9);
-                    if (userWin == true) cout << "Игрок победил" << endl;
-                    else if (compWin == true)cout << "Компьютер победил" << endl;
-                    else if (notWin == true)cout << "Победителей нет" << endl;
-                    char exitMenu[3][20] = { "Еще раз","В меню", "Выход" };
+                    if (userWin == true) cout << "РРіСЂРѕРє РїРѕР±РµРґРёР»" << endl;
+                    else if (compWin == true)cout << "РљРѕРјРїСЊСЋС‚РµСЂ РїРѕР±РµРґРёР»" << endl;
+                    else if (notWin == true)cout << "РџРѕР±РµРґРёС‚РµР»РµР№ РЅРµС‚" << endl;
+                    char exitMenu[3][20] = { "Р•С‰Рµ СЂР°Р·","Р’ РјРµРЅСЋ", "Р’С‹С…РѕРґ" };
                     int exitPoint = ActivePoint(exitMenu, 3);
                     if (exitPoint == 0)
                     {
@@ -602,22 +602,22 @@ int main()
                     }
                 } while (exit != 1);
             }
-            else if (pointLvl == 1)//средний уровень
+            else if (pointLvl == 1)//СЃСЂРµРґРЅРёР№ СѓСЂРѕРІРµРЅСЊ
             {
                 do
                 {
-                    char field[3][3] = { {'.','.','.'},{'.','.','.'},{'.','.','.'} }; //игровое поле
+                    char field[3][3] = { {'.','.','.'},{'.','.','.'},{'.','.','.'} }; //РёРіСЂРѕРІРѕРµ РїРѕР»Рµ
                     bool userWin = false, compWin = false, notWin = false;
-                    int x = 0, y = 0; //выбор позиции
-                    int movCount = 0;//количество ходов
+                    int x = 0, y = 0; //РІС‹Р±РѕСЂ РїРѕР·РёС†РёРё
+                    int movCount = 0;//РєРѕР»РёС‡РµСЃС‚РІРѕ С…РѕРґРѕРІ
                     if (firstMove == 1)
                     {
                         do
                         {
-                            x = rand() % 3;//рандом для компьютера
+                            x = rand() % 3;//СЂР°РЅРґРѕРј РґР»СЏ РєРѕРјРїСЊСЋС‚РµСЂР°
                             y = rand() % 3;
                         } while (field[x][y] != '.');
-                        field[x][y] = comp; //ход компьютера
+                        field[x][y] = comp; //С…РѕРґ РєРѕРјРїСЊСЋС‚РµСЂР°
                         movCount++;
                     }
                     do
@@ -655,25 +655,25 @@ int main()
                                 if (field[x][y] == user || field[x][y] == comp)
                                     key = -1;
                                 else
-                                    field[x][y] = user;//выбор игрока
+                                    field[x][y] = user;//РІС‹Р±РѕСЂ РёРіСЂРѕРєР°
                                 break;
                             default:
                                 break;
                             }
                         } while (key != Space);
                         movCount++;
-                        //ход компьютера
+                        //С…РѕРґ РєРѕРјРїСЊСЋС‚РµСЂР°
                         if (movCount != 9)
                         {
-                            if (field[0][0] == user && field[0][1] == user && field[0][2] == '.') field[0][2] = comp;//строка
+                            if (field[0][0] == user && field[0][1] == user && field[0][2] == '.') field[0][2] = comp;//СЃС‚СЂРѕРєР°
                             else if (field[1][0] == user && field[1][1] == user && field[1][2] == '.') field[1][2] = comp;
                             else if (field[2][0] == user && field[2][1] == user && field[2][2] == '.') field[2][2] = comp;
 
-                            else if (field[0][0] == user && field[1][0] == user && field[2][0] == '.') field[2][0] = comp;//столбец
+                            else if (field[0][0] == user && field[1][0] == user && field[2][0] == '.') field[2][0] = comp;//СЃС‚РѕР»Р±РµС†
                             else if (field[0][1] == user && field[1][1] == user && field[2][1] == '.') field[2][1] = comp;
                             else if (field[0][2] == user && field[1][2] == user && field[2][2] == '.') field[2][2] = comp;
 
-                            else if (field[0][0] == user && field[1][1] == user && field[2][2] == '.') field[2][2] = comp;//диагональ
+                            else if (field[0][0] == user && field[1][1] == user && field[2][2] == '.') field[2][2] = comp;//РґРёР°РіРѕРЅР°Р»СЊ
                             else if (field[0][2] == user && field[1][1] == user && field[2][0] == '.') field[2][0] = comp;
                             else
                             {
@@ -686,29 +686,29 @@ int main()
                             }
                             movCount++;
                         }
-                        //условие победы
-                        if (field[0][0] == user && field[0][1] == user && field[0][2] == user ||//строка
+                        //СѓСЃР»РѕРІРёРµ РїРѕР±РµРґС‹
+                        if (field[0][0] == user && field[0][1] == user && field[0][2] == user ||//СЃС‚СЂРѕРєР°
                             field[1][0] == user && field[1][1] == user && field[1][2] == user ||
                             field[2][0] == user && field[2][1] == user && field[2][2] == user ||
 
-                            field[0][0] == user && field[1][0] == user && field[2][0] == user ||//столбец
+                            field[0][0] == user && field[1][0] == user && field[2][0] == user ||//СЃС‚РѕР»Р±РµС†
                             field[0][1] == user && field[1][1] == user && field[2][1] == user ||
                             field[0][2] == user && field[1][2] == user && field[2][2] == user ||
 
-                            field[0][0] == user && field[1][1] == user && field[2][2] == user ||//диагональ
+                            field[0][0] == user && field[1][1] == user && field[2][2] == user ||//РґРёР°РіРѕРЅР°Р»СЊ
                             field[0][2] == user && field[1][1] == user && field[2][0] == user)
                         {
                             userWin = true;
                         }
-                        else if (field[0][0] == comp && field[0][1] == comp && field[0][2] == comp ||//строка
+                        else if (field[0][0] == comp && field[0][1] == comp && field[0][2] == comp ||//СЃС‚СЂРѕРєР°
                             field[1][0] == comp && field[1][1] == comp && field[1][2] == comp ||
                             field[2][0] == comp && field[2][1] == comp && field[2][2] == comp ||
 
-                            field[0][0] == comp && field[1][0] == comp && field[2][0] == comp ||//столбец
+                            field[0][0] == comp && field[1][0] == comp && field[2][0] == comp ||//СЃС‚РѕР»Р±РµС†
                             field[0][1] == comp && field[1][1] == comp && field[2][1] == comp ||
                             field[0][2] == comp && field[1][2] == comp && field[2][2] == comp ||
 
-                            field[0][0] == comp && field[1][1] == comp && field[2][2] == comp ||//диагональ
+                            field[0][0] == comp && field[1][1] == comp && field[2][2] == comp ||//РґРёР°РіРѕРЅР°Р»СЊ
                             field[0][2] == comp && field[1][1] == comp && field[2][0] == comp)
                         {
                             compWin = true;
@@ -719,13 +719,13 @@ int main()
                         }
                         system("cls");
                     } while (userWin == false && compWin == false && notWin == false);
-                    //проверка на победителя
+                    //РїСЂРѕРІРµСЂРєР° РЅР° РїРѕР±РµРґРёС‚РµР»СЏ
                     ShowHeader();
                     SetCursor(26, 9);
-                    if (userWin == true) cout << "Игрок победил" << endl;
-                    else if (compWin == true)cout << "Компьютер победил" << endl;
-                    else if (notWin == true)cout << "Победителей нет" << endl;
-                    char exitMenu[3][20] = { "Еще раз","В меню", "Выход" };
+                    if (userWin == true) cout << "РРіСЂРѕРє РїРѕР±РµРґРёР»" << endl;
+                    else if (compWin == true)cout << "РљРѕРјРїСЊСЋС‚РµСЂ РїРѕР±РµРґРёР»" << endl;
+                    else if (notWin == true)cout << "РџРѕР±РµРґРёС‚РµР»РµР№ РЅРµС‚" << endl;
+                    char exitMenu[3][20] = { "Р•С‰Рµ СЂР°Р·","Р’ РјРµРЅСЋ", "Р’С‹С…РѕРґ" };
                     int exitPoint = ActivePoint(exitMenu, 3);
                     if (exitPoint == 0)
                     {
@@ -750,10 +750,10 @@ int main()
         {
             do
             {
-                char field[3][3] = { {'.','.','.'},{'.','.','.'},{'.','.','.'} }; //игровое поле
+                char field[3][3] = { {'.','.','.'},{'.','.','.'},{'.','.','.'} }; //РёРіСЂРѕРІРѕРµ РїРѕР»Рµ
                 bool userWin = false, user2Win = false, notWin = false;
-                int x = 0, y = 0; //выбор позиции
-                int movCount = 0;//количество ходов
+                int x = 0, y = 0; //РІС‹Р±РѕСЂ РїРѕР·РёС†РёРё
+                int movCount = 0;//РєРѕР»РёС‡РµСЃС‚РІРѕ С…РѕРґРѕРІ
                 do
                 {
                     for (size_t i = 0; i < 3; i++)
@@ -792,7 +792,7 @@ int main()
                                 if (field[x][y] == user || field[x][y] == user2)
                                     key = -1;
                                 else
-                                    field[x][y] = user;//выбор игрока 1
+                                    field[x][y] = user;//РІС‹Р±РѕСЂ РёРіСЂРѕРєР° 1
                                 firstMove = 1;
                                 break;
                             }
@@ -801,7 +801,7 @@ int main()
                                 if (field[x][y] == user || field[x][y] == user2)
                                     key = -1;
                                 else
-                                    field[x][y] = user2;//выбор игрока 2
+                                    field[x][y] = user2;//РІС‹Р±РѕСЂ РёРіСЂРѕРєР° 2
                                 firstMove = 0;
                                 break;
                             }
@@ -811,29 +811,29 @@ int main()
                     } while (key != Space);
                     movCount++;
 
-                    //условие победы
-                    if (field[0][0] == user && field[0][1] == user && field[0][2] == user ||//строка
+                    //СѓСЃР»РѕРІРёРµ РїРѕР±РµРґС‹
+                    if (field[0][0] == user && field[0][1] == user && field[0][2] == user ||//СЃС‚СЂРѕРєР°
                         field[1][0] == user && field[1][1] == user && field[1][2] == user ||
                         field[2][0] == user && field[2][1] == user && field[2][2] == user ||
 
-                        field[0][0] == user && field[1][0] == user && field[2][0] == user ||//столбец
+                        field[0][0] == user && field[1][0] == user && field[2][0] == user ||//СЃС‚РѕР»Р±РµС†
                         field[0][1] == user && field[1][1] == user && field[2][1] == user ||
                         field[0][2] == user && field[1][2] == user && field[2][2] == user ||
 
-                        field[0][0] == user && field[1][1] == user && field[2][2] == user ||//диагональ
+                        field[0][0] == user && field[1][1] == user && field[2][2] == user ||//РґРёР°РіРѕРЅР°Р»СЊ
                         field[0][2] == user && field[1][1] == user && field[2][0] == user)
                     {
                         userWin = true;
                     }
-                    else if (field[0][0] == user2 && field[0][1] == user2 && field[0][2] == user2 ||//строка
+                    else if (field[0][0] == user2 && field[0][1] == user2 && field[0][2] == user2 ||//СЃС‚СЂРѕРєР°
                         field[1][0] == user2 && field[1][1] == user2 && field[1][2] == user2 ||
                         field[2][0] == user2 && field[2][1] == user2 && field[2][2] == user2 ||
 
-                        field[0][0] == user2 && field[1][0] == user2 && field[2][0] == user2 ||//столбец
+                        field[0][0] == user2 && field[1][0] == user2 && field[2][0] == user2 ||//СЃС‚РѕР»Р±РµС†
                         field[0][1] == user2 && field[1][1] == user2 && field[2][1] == user2 ||
                         field[0][2] == user2 && field[1][2] == user2 && field[2][2] == user2 ||
 
-                        field[0][0] == user2 && field[1][1] == user2 && field[2][2] == user2 ||//диагональ
+                        field[0][0] == user2 && field[1][1] == user2 && field[2][2] == user2 ||//РґРёР°РіРѕРЅР°Р»СЊ
                         field[0][2] == user2 && field[1][1] == user2 && field[2][0] == user2)
 
                     {
@@ -845,13 +845,13 @@ int main()
                     }
                     system("cls");
                 } while (userWin == false && user2Win == false && notWin == false);
-                //проверка на победителя
+                //РїСЂРѕРІРµСЂРєР° РЅР° РїРѕР±РµРґРёС‚РµР»СЏ
                 ShowHeader();
                 SetCursor(26, 9);
-                if (userWin == true) cout << "Игрок1 победил" << endl;
-                else if (user2 == true)cout << "Игрок2 победил" << endl;
-                else if (notWin == true)cout << "Победителей нет" << endl;
-                char exitMenu[3][20] = { "Еще раз","В меню", "Выход" };
+                if (userWin == true) cout << "РРіСЂРѕРє1 РїРѕР±РµРґРёР»" << endl;
+                else if (user2 == true)cout << "РРіСЂРѕРє2 РїРѕР±РµРґРёР»" << endl;
+                else if (notWin == true)cout << "РџРѕР±РµРґРёС‚РµР»РµР№ РЅРµС‚" << endl;
+                char exitMenu[3][20] = { "Р•С‰Рµ СЂР°Р·","Р’ РјРµРЅСЋ", "Р’С‹С…РѕРґ" };
                 int exitPoint = ActivePoint(exitMenu, 3);
                 if (exitPoint == 0)
                 {
